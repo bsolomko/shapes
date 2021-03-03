@@ -1,0 +1,24 @@
+.log
+.buildpath
+.project
+.settings/
+**/generated/
+
+### Docker ###
+.env
+docker/shared/
+
+### gradle build files ###
+/build/
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
+### Apple ###
+.DS_Store
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
