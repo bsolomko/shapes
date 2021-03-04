@@ -1,9 +1,11 @@
 package sp;
 
+import java.util.Objects;
+
 public class Goods {
-    private Double price;
-    private String name;
-    private Integer rating;
+    final  private Double price;
+    final private String name;
+    final  private Integer rating;
 
     public Goods(Double price, String name, Integer rating) {
         this.price = price;
@@ -15,23 +17,37 @@ public class Goods {
         return price;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+
 
     public Integer getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
-        this.rating = rating;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Goods goods = (Goods) o;
+        return Objects.equals(price, goods.price) && Objects.equals(name, goods.name) && Objects.equals(rating, goods.rating);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(price, name, rating);
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "price=" + price +
+                ", name='" + name + '\'' +
+                ", rating=" + rating +
+                '}';
     }
 }

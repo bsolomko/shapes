@@ -1,11 +1,12 @@
 package sp;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Сategory {
 
-    private String name;
-    private ArrayList<Goods> goods;
+    final  private String name;
+    final private ArrayList<Goods> goods;
 
     public Сategory(String name) {
         this.name = name;
@@ -19,7 +20,7 @@ public class Сategory {
         for (Goods g: goods) {
             if(g.getName().equals(name)) return g;
         }
-        return null;
+        throw new RuntimeException();
     }
 
     public String getName() {
@@ -38,10 +39,31 @@ public class Сategory {
         }
     }
 
-    public boolean checkGoodsInCategory(String nameGoods){
+    public boolean checkGoodsInCategory(String goodsName){
         for ( Goods g: goods) {
-            if(g.getName() == nameGoods) return true;
+            if(g.getName() == goodsName) return true;
         }
-        return  false;
+             throw new RuntimeException();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Сategory сategory = (Сategory) o;
+        return Objects.equals(name, сategory.name) && Objects.equals(goods, сategory.goods);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, goods);
+    }
+
+    @Override
+    public String toString() {
+        return "Сategory{" +
+                "name='" + name + '\'' +
+                ", goods=" + goods.toString() +
+                '}';
     }
 }
