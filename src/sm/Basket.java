@@ -1,12 +1,20 @@
 package sm;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Basket {
 
-    ArrayList<Product> products = new ArrayList<Product>();
+     private final List<Product> products = new ArrayList<>();
 
-    public Basket(ArrayList<Product> products) {
-        this.products = products;
+    @Override
+    public String toString() {
+        return "Basket{" +
+                "products=" + products +
+                '}';
+    }
+
+    public void addGoods(Product product){
+        products.add(product);
     }
 }
