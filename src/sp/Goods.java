@@ -3,9 +3,9 @@ package sp;
 import java.util.Objects;
 
 public class Goods {
-    final  private Double price;
-    final private String name;
-    final  private Integer rating;
+    private final Double price;
+    private final String name;
+    private final Integer rating;
 
     public Goods(Double price, String name, Integer rating) {
         this.price = price;
@@ -18,11 +18,9 @@ public class Goods {
     }
 
 
-
     public String getName() {
         return name;
     }
-
 
 
     public Integer getRating() {

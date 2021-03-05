@@ -1,36 +1,38 @@
 package sp;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Сategory {
 
-    final  private String name;
-    final private ArrayList<Goods> goods;
+    private final String name;
+    private final List<Goods> goods;
 
     public Сategory(String name) {
         this.name = name;
         this.goods = new ArrayList<>();
     }
-    public void addGood(Goods g){
+
+    public void addGood(Goods g) {
         goods.add(g);
     }
 
-    public Goods getGoods( String name){
-        for (Goods g: goods) {
-            if(g.getName().equals(name)) return g;
+    public Goods getGoods(String name) {
+        for (Goods g : goods) {
+            if (g.getName().equals(name)) return g;
         }
-        throw new RuntimeException();
+        throw new RuntimeException("Don`t find goods by name");
     }
 
     public String getName() {
         return name;
     }
 
-    public void getAllGoodsInCategory(){
+    public void printAllGoodsInCategory() {
 
         System.out.println("Category: " + getName());
-        for ( Goods g: goods) {
+        for (Goods g : goods) {
             System.out.println("NAME :" + g.getName());
             System.out.println("PRICE :" + g.getPrice());
             System.out.println("RATING :" + g.getRating());
@@ -39,11 +41,12 @@ public class Сategory {
         }
     }
 
-    public boolean checkGoodsInCategory(String goodsName){
-        for ( Goods g: goods) {
-            if(g.getName() == goodsName) return true;
+    public void checkGoodsInCategory(String goodsName) {
+        boolean flag = true;
+        for (Goods g : goods) {
+            if (g.getName().equals(goodsName)) flag = false;
         }
-             throw new RuntimeException();
+        if (flag) throw new RuntimeException();
     }
 
     @Override
